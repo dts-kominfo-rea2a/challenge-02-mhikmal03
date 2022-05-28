@@ -50,6 +50,32 @@ function lakukanLooping(arrPegawai) {
   */
   let komentar = null;
 
+  hasilLooping = [];
+  jumlahPria = 0;
+  jumlahWanita = 0;
+
+  for (let i = 0; i < dataYangAkanDilooping.length; i++) {
+    let hasil = "";
+    hasil += dataYangAkanDilooping.namaDepan[i] + " " + dataYangAkanDilooping.namaBelakang;
+    hasilLooping.push(hasil);
+
+    if (dataYangAkanDilooping[i].jenisKelamin === "M") {
+      jumlahPria++;
+    } else if (dataYangAkanDilooping[i].jenisKelamin === "P") {
+      jumlahWanita++;
+    }
+  }
+
+
+
+  if (jumlahPria == jumlahWanita) {
+    komentar = "Jumlah Pria dan Wanita berimbang";
+  } else if (jumlahPria > jumlahWanita) {
+    komentar = "Jumlah Pria lebih banyak dari Wanita";
+  } else if (jumlahWanita > jumlahPria) {
+    komentar = "Jumlah Wanita lebih banyak dari Pria";
+  }
+
   // ! JANGAN DIMODIFIKASI
   return {
     hasilLooping,
